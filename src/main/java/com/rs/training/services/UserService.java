@@ -1,7 +1,10 @@
-package com.rs.training;
+package com.rs.training.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.rs.training.jdbc.UserDao;
+import com.rs.training.model.User;
 
 @Service
 public class UserService {

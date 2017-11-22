@@ -1,10 +1,13 @@
-package com.rs.training;
+package com.rs.training.validators;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+
+import com.rs.training.model.User;
+import com.rs.training.services.UserService;
 
 @Component
 public class UserValidator implements Validator {

@@ -1,4 +1,4 @@
-package com.rs.training;
+package com.rs.training.controller;
 
 import java.security.acl.Permission;
 import java.text.DateFormat;
@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.rs.training.model.User;
+import com.rs.training.services.UserService;
+import com.rs.training.validators.UserValidator;
 
 /**
  * Handles requests for the application home page.

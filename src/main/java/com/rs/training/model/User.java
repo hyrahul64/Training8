@@ -1,4 +1,4 @@
-package com.rs.training;
+package com.rs.training.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
