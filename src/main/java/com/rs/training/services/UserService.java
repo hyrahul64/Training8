@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.rs.training.jdbc.UserDao;
 import com.rs.training.model.User;
+import com.rs.training.model.UserDetail;
 
 @Service
 public class UserService {
@@ -50,6 +51,15 @@ public class UserService {
 		{
 			return false;
 		}
+	}
+
+	public boolean addUserDetail(String userName, UserDetail userDetail) {
+
+		return userDao.addUserDetail(userName, userDetail);
+	}
+	
+	public UserDetail getUserDetail(String userName) {
+		return userDao.getUserDetail(userName);
 	}
 	
 }

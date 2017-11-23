@@ -18,7 +18,7 @@
 <tr>
 	<td align="right"> Name: </td>
 	<td align="left"> <input type="text" name = "userName"/>
-	<td><form:errors path="user.userName"/></td>
+	<td><form:errors path="user.username"/></td>
 </tr>
 
 <tr>

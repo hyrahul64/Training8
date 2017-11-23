@@ -1,6 +1,5 @@
 package com.rs.training.controller;
 
-import java.security.acl.Permission;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -14,11 +13,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rs.training.model.User;
+import com.rs.training.model.UserDetail;
 import com.rs.training.services.UserService;
 import com.rs.training.validators.UserValidator;
 
@@ -98,4 +99,40 @@ public class HomeController {
 		}
 	}
 	
+	
+	@RequestMapping(value = "updateProfile/{userName}", method = RequestMethod.GET)
+	public String updateProfile(Model model,
+			@PathVariable("userName") String userName/*,
+			@ModelAttribute("userDetail") UserDetail userDetail*/) {
+		
+		model.addAttribute("userName",userName);
+		UserDetail userDetail =  userService.getUserDetail(userName);
+		model.addAttribute("userDetail", userDetail);
+		return "updateProfile";
+	}
+	
+	
+	@RequestMapping(value = "updateProfile/updateUserDetail" , method = RequestMethod.POST)
+	public String updateUserDetail(Model model, 
+			@RequestParam(value = "userName", required = true) String userName,
+			@Valid 	@ModelAttribute("userDetail") UserDetail userDetail,
+			BindingResult results)
+	{
+	
+		if(results.hasErrors())
+		{
+			return "updateProfile";
+		}
+		
+		if(userService.addUserDetail(userName, userDetail))
+		{
+			model.addAttribute("userName", userName);
+			
+			return "welcomUser";
+		}
+		else
+		{
+			return "updateProfile";
+		}
+	}
 }

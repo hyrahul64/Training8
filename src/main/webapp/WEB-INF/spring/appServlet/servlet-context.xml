@@ -25,6 +25,7 @@
 	<context:component-scan base-package="com.rs.training" />
 	
 	<view-controller path="/createUser" view-name="createUser" />
+	<view-controller path="/updateProfile" view-name="updateProfile" />
 
     <beans:bean id="messageSource"
      class="org.springframework.context.support.ReloadableResourceBundleMessageSource"

@@ -9,5 +9,6 @@
 <body>
 <h1> Welcome ${userName}!</h1>
 <P>  The time on the server is ${serverTime}. </P>
+<p>  <a href = "updateProfile/${userName}" >Update Profile</a></p>
 </body>
 </html>
